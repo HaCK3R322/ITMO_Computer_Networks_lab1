@@ -22,7 +22,17 @@ def rz_code(message):
     ax.set_ylim(-1.5, 1.5)
     ax.set_yticks([-1, 0, 1])
     ax.set_yticklabels(['-1', '0', '1'])
-    ax.set_xticks(range(0, 32, 1))
+
+    # Set the x-axis ticks and labels based on your 'message' list
+    bit_indices = range(len(message))
+    bit_positions = list(bit_indices)  # Keep the tick positions as they are
+    ax.set_xticks(bit_positions)
+    ax.set_xticklabels([''] * len(bit_positions))  # Clear the default tick labels
+
+    # Add the 'message' labels with an offset of 0.5 from the tick positions
+    for idx, bit in zip(bit_indices, message):
+        ax.text(idx + 0.5, -1.8, str(bit), ha='center')
+
     ax.grid(True, axis='y')
     plt.title('RZ')
     plt.show()

@@ -24,13 +24,14 @@ def main():
     for byte in hex_message:
         binary_byte = bin(byte)[2:].zfill(8)
         binary_message.extend(int(x) for x in list(binary_byte))
+
     binary_message_print_count = 1
     for number in binary_message:
         print(number, end='')
-        if binary_message_print_count == 8:
+        binary_message_print_count += 1
+        if binary_message_print_count == 9:
             print(' ', end='')
             binary_message_print_count = 1
-        binary_message_print_count += 1
     print()
 
     ########################################
