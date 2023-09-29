@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 
-def nrz_code(message):
+def nrz_code(message, code_name=""):
     bit_width = 1  # длительность каждого бита
     time = []  # массив значений времени
     signal = []  # массив значений сигнала
@@ -34,5 +34,5 @@ def nrz_code(message):
         ax.text(idx + 0.5, -0.7, str(bit), ha='center')
 
     ax.grid(True, axis='y')
-    plt.title('NRZ (униполярный)')
+    plt.title('NRZ (униполярный) ' + code_name)
     plt.show()
